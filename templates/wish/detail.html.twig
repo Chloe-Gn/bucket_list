@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}This is the detail page | {{ wish.title}}{% endblock %}
+
+{% block body %}
+    <H1> Détail de mon voeux {{ wish.title }}</H1>
+    <ul>
+        <li>{{ wish.author }}</li>
+        <li>{{ wish.description }}</li>
+        <li>{{ wish.isPublished }}</li>
+        <li>{{  wish.dateCreated|date('d/m/Y') }}</li>
+
+    </ul>
+
+{% endblock %}

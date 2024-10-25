@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}This is the main page | {{ parent()}}{% endblock %}
+
+{% block body %}
+    <H1>All the wishes in my bucketlist</H1>
+
+    {%  for wish in wishes %}
+
+        <ul>
+            <li><a href="{{  path('wish_detail', {'id':wish.id}) }}">{{ wish.title }}</a></li>
+        </ul>
+    {%  endfor %}
+
+{% endblock %}

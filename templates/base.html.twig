@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}MySite{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    <body class="d-flex flex-column">
+    {# entête du site #}
+    <header>
+        <div class="container">
+            <h1 class="header-logo">
+                <a href="{{ path('main_index') }}" title="Go back to homepage">
+                    <img src="{{ asset('images/logo.svg') }}"
+                         alt="Bucket-List Logo">
+                    Bucket-List
+                </a>
+            </h1>
+            {% include('_navbar.html.twig') %}
+        </div>
+    </header>
+    {# contenu principal de chaque page #}
+    <main class="flex-grow-1">
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
+    </main>
+    {# pied-de-page du site #}
+    <footer>
+        <div class="container">
+            &copy; Bucket-List {{ "now"|date("Y") }}
+        </div>
+    </footer>
+    </body>
+
+
+    </body>
+</html>
