@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Wish;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -26,6 +27,13 @@ class AjouterWishType extends AbstractType
             -> add('submit', SubmitType::class, [
                 'label'  => 'Soumettre'
             ])
+            ->add('delete', ButtonType::class, [
+                'label' => 'Supprimer',
+                'attr' => [
+                    'class' => 'btn btn-danger',
+                    'onclick' => 'if(confirm("Es-tu sûr.e de vouloir supprimer ce voeu de ta liste ?")) { this.form.submit(); }',
+                ],
+            ]);
         ;
     }
 
