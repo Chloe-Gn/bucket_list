@@ -42,11 +42,55 @@ class WishController extends AbstractController
 
         $form->handleRequest($request);
 
+        //clause pour quand form est soumis (method post)
+        if ($form->isSubmitted() && $form->isValid()){
+            $em->persist($wish);
+            $em->flush();
+
+            $this->addFlash('success', '🎉 Un nouveau voeu a été ajouté avec succès !');
+
+            return $this->redirectToRoute('main_index');
+
+        }
+
+
+
         return $this->render('wish/edit.html.twig', ['form' => $form]);
 
 
-       //todo : terminer controller à partir de /create dans series_app
+
     }
+
+
+    #[Route('/update/{id}', name: '_update', requirements: ['id' => '\d+'])]
+    public function update(Request $request, EntityManagerInterface $em, Wish $wish) : Response {
+
+
+        $form =  $this->createForm(AjouterWishType::class,  $wish);
+
+        $form->handleRequest($request);
+
+
+        //clause pour quand form est soumis (method post)
+        if ($form->isSubmitted()){
+
+            $em->flush();
+
+            $this->addFlash('success', '🎉 Votre voeu a été modifié avec succès !');
+
+            return $this->redirectToRoute('wish_liste');
+
+
+        }
+
+        return $this->render('wish/edit.html.twig', ['form' => $form]);
+
+    }
+
+
+
+
+
 
 
     //route vers detail
