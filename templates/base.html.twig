@@ -21,7 +21,35 @@
                     Bucket-List
                 </a>
             </h1>
-            {% include('_navbar.html.twig') %}
+{# navbar en dur car import ne fonctionne pas #}
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('main_index') }}"
+                       title="Go back to homepage">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('wish_liste') }}"
+                    >
+                        Liste des voeux
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('main_about_us') }}"
+                    >
+                        A propos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('wish_ajouter') }}"
+                    >
+                        Ajouter des voeux
+                    </a>
+                </li>
+
+            </ul>
+        {#     {% include('_navbar.html.twig') %} #}
         </div>
     </header>
     {# contenu principal de chaque page #}
