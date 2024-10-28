@@ -4,7 +4,7 @@
 {% block title %}This is the detail page | {{ wish.title}}{% endblock %}
 
 {% block body %}
-    <H1> Détail de mon voeux {{ wish.title }}</H1>
+    <H1> Détail de mon voeu {{ wish.title }}</H1>
     <ul>
         <li>{{ wish.author }}</li>
         <li>{{ wish.description }}</li>
@@ -13,6 +13,6 @@
 
     </ul>
 
-    <a href="{{ path('wish_update', {'id':wish.id}) }}">Modifier mon voeu</a>
+    <a class="btn btn-primary" href="{{ path('wish_update', {'id':wish.id}) }}">Modifier mon voeu</a>
 
 {% endblock %}
